@@ -1,0 +1,173 @@
+15/09/23, 9:08 pm - Messages and calls are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can read or listen to them. Tap to learn more.
+26/09/23, 9:06 am - vinix: <Media omitted>
+26/09/23, 9:06 am - vinix: <Media omitted>
+26/09/23, 9:06 am - vinix: <Media omitted>
+26/09/23, 9:08 am - Ken: Woila
+26/09/23, 9:08 am - Ken: <Media omitted>
+26/09/23, 9:10 am - vinix: 🗿
+31/10/23, 1:30 pm - vinix: #include <iostream>
+
+using namespace std;
+
+int main() {
+	int bil1, bil2;
+	
+	cout<<"masukkan nilai x: ";
+	cin >> bil1;
+	
+	cout<<"masukkan nilai y: ";
+	cin >> bil2;
+	
+	//operator AND
+	bool hasilopand = (bil1 > bil2) && (bil1 == bil2);
+	
+	//operator OR
+	bool hasilopor = (bil1 !=bil2) || (bil1 > bil2);
+	
+	//operator negasi
+	bool hasilopsi = !(bil1 > bil2);
+	
+	if (hasilopand) {
+		cout << "operator AND = (x > y) && (x == y) = True " << endl;
+	} else {
+		cout << "operator AND = (x > y) && (x == y) = False " << endl;
+	}
+		if (hasilopor) {
+		cout << "operator OR = (x !=y) || (x > y) = True " << endl;
+	} else {
+		cout << "operator OR = False = (x !=y) || (x > y)" << endl;
+	}
+	if (hasilopsi) {
+		cout << "operator NEGASI = !(x > y) = True " << endl;
+	} else {
+		cout << "operator NEGASI = !(x > y) = False" << bil1 << endl;
+	}
+	
+	return 0;
+} <This message was edited>
+31/10/23, 1:30 pm - vinix: puh
+31/10/23, 1:31 pm - vinix: ini gimana
+31/10/23, 1:31 pm - vinix: coba pahami kode ini
+31/10/23, 1:31 pm - Ken: Bngt
+31/10/23, 1:31 pm - Ken: Bntr
+31/10/23, 1:32 pm - vinix: woke
+31/10/23, 1:33 pm - Ken: Oh itu kalo && berarti 2 statement nya harus sama
+31/10/23, 1:33 pm - vinix: ini //bil1 nya gak mau muncul puh
+cout << "operator NEGASI = !(x > y) = False" << bil1 << endl; <This message was edited>
+31/10/23, 1:33 pm - vinix: keknya iya
+31/10/23, 1:33 pm - vinix: gweh lupa
+31/10/23, 1:38 pm - Ken: #include <iostream>
+
+using namespace std;
+
+int main() {
+	int bil1, bil2;
+	
+	cout<<"masukkan nilai x: ";
+	cin >> bil1;
+	
+	cout<<"masukkan nilai y: ";
+	cin >> bil2;
+	
+	//operator AND
+	bool hasilopand = (bil1 > bil2) && (bil1 == bil2);
+	
+	//operator OR
+	bool hasilopor = (bil1 !=bil2) || (bil1 > bil2);
+	
+	//operator negasi
+	bool hasilopsi = (bil1 > bil2);
+	
+	if (hasilopand) {
+		cout << "operator AND = (x > y) && (x == y) = True " << endl;
+	} else {
+		cout << "operator AND = (x > y) && (x == y) = False " << endl;
+	}
+		if (hasilopor) {
+		cout << "operator OR = (x !=y) || (x > y) = True " << endl;
+	} else {
+		cout << "operator OR = False = (x !=y) || (x > y)" << endl;
+	}
+	if (hasilopsi) {
+		cout << "operator NEGASI = !(x > y) = True " << endl;
+	} else {
+		cout << "operator NEGASI = !(x > y) = False" << bil1 << endl;
+	}
+	
+	return 0;
+}
+31/10/23, 1:38 pm - Ken: Gini ta puh
+31/10/23, 1:40 pm - Ken: Misal !(10 > 5) itu hasilnya false puh
+31/10/23, 1:40 pm - Ken: Soalnya ada !
+31/10/23, 1:41 pm - Ken: Trus klo || itu diantara 2 statement ada yg bener nanti dianggap true
+31/10/23, 1:43 pm - vinix: bukan itu nya
+31/10/23, 1:43 pm - vinix: ini nya
+31/10/23, 1:44 pm - Ken: <Media omitted>
+31/10/23, 1:44 pm - vinix: gak muncul di gw
+31/10/23, 1:45 pm - Ken: Lah 🗿
+31/10/23, 1:45 pm - Ken: Harus yg false
+31/10/23, 1:45 pm - Ken: Kalo true ya gk muncul
+31/10/23, 1:46 pm - vinix: sip dah muncul
+31/10/23, 1:50 pm - Ken: 🗿
+31/10/23, 1:50 pm - Ken: Mau buat apaan puh 🗿
+31/10/23, 1:58 pm - vinix: mau menyempurnakan tugas bolean
+31/10/23, 1:58 pm - vinix: itu
+31/10/23, 1:58 pm - vinix: lebh di sempurnakan lagi
+31/10/23, 1:59 pm - Ken: Gass 🗿
+31/10/23, 2:17 pm - vinix: boleh
+31/10/23, 2:17 pm - vinix: tadi gwe di jadikan perwakilan buat ikut kek workshop gitu
+31/10/23, 2:17 pm - vinix: buat game cuk
+31/10/23, 2:17 pm - vinix: p
+31/10/23, 2:23 pm - Ken: Bjir
+31/10/23, 2:25 pm - Ken: #include <iostream>
+using namespace std;
+
+void sortingArray(int array[], int size);
+
+int main(){
+	int numbers[10];
+	const int size = sizeof(numbers)/sizeof(numbers[0]);
+	
+	cout << "======================================" << endl;
+	cout << "Masukkan angka sebanyak 10 kali" << endl;
+	cout << "======================================" << endl;
+	
+	for(int i = 0; i < size; i++){
+		cout << "Masukkan angka #" << i + 1 << " : ";
+		cin >> numbers[i];
+	}
+	
+	sortingArray(numbers, size);
+	
+		cout << "======================================" << endl;
+		cout << "Angka mu jika di urutkan dari kecil ke besar adalah : ";
+		for(int i = 0; i < size; i++){
+			cout << numbers[i];
+			
+			if (i == 9){
+				cout << ".";
+			}else{
+				cout << ", ";
+			}
+		}
+	
+}
+
+void sortingArray(int array[], int size){
+	int temp;
+	
+	for(int i = 0; i < size - 1; i++){
+		for(int j = 0; j < size - i - 1; j++){
+			if(array[j] > array[j + 1]){
+				temp = array[j + 1];
+				array[j + 1] = array[j];
+				array[j] = temp;
+			}
+		}
+	}
+}
+31/10/23, 2:25 pm - Ken: Coba puh 🗿
+31/10/23, 2:25 pm - Ken: Ngoding di hp
+06/07/24, 6:28 am - Ken: P
+06/07/24, 6:28 am - vinix: 🗿
+06/07/24, 6:28 am - Ken: Nomer ini buat tes aja aowkaowk8 <This message was edited>
