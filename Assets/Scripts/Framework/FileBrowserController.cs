@@ -1,5 +1,6 @@
 using UnityEngine;
 using SimpleFileBrowser;
+using System;
 
 public class FileBrowserManager : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class FileBrowserManager : MonoBehaviour
 		// Name: Users
 		// Path: C:\Users
 		// Icon: default (folder icon)
-		FileBrowser.AddQuickLink( "Users", "C:\\Users", null );
+		FileBrowser.AddQuickLink( "Downloads", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads", null );
 		
 
 		FileBrowser.ShowLoadDialog( ( paths ) => { OnSelectedFiles(paths); }, () => { OnCancelled(); },
@@ -50,7 +51,5 @@ public class FileBrowserManager : MonoBehaviour
 
     void OnCancelled(){
         Debug.Log("Canceled");
-
-        FileBrowser.ClearQuickLinks();
     }
 }
