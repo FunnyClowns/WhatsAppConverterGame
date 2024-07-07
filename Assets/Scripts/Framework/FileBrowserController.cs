@@ -3,7 +3,6 @@ using SimpleFileBrowser;
 
 public class FileBrowserManager : MonoBehaviour
 {
-
 	void Start()
 	{
 
