@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         for (int i = 0; i < datas.Count; i++){
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
 
             if(datas[i][..1] == "1"){
                 SetCharacterText(1, datas[i][1..]);
