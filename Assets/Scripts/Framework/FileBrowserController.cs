@@ -34,22 +34,17 @@ public class FileBrowserManager : MonoBehaviour
 		FileBrowser.AddQuickLink( "Downloads", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads", null );
 		
 
-		FileBrowser.ShowLoadDialog( ( paths ) => { OnSelectedFiles(paths); }, () => { OnCancelled(); },
+		FileBrowser.ShowLoadDialog( ( paths ) => { WhatsAppConverter.ReadFile(@paths[0]); }, () => { OnCancelled(); },
 								   FileBrowser.PickMode.Files, false, null, null, "Select Files", "Load" );
 
 	}
 
-	void OnSelectedFiles( string[] filePaths )
-	{
-		for( int i = 0; i < filePaths.Length; i++ )
-			Debug.Log( filePaths[i] );
-
-		string filePath = filePaths[0];
-        
-        WhatsAppConverter.ReadFile(@filePath);
-	}
-
     void OnCancelled(){
-        Debug.Log("Canceled");
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+
+        #endif
     }
 }
