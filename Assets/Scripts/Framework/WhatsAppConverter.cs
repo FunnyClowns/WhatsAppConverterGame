@@ -67,6 +67,7 @@ public class WhatsAppConverter : MonoBehaviour
 
                             } else{
                                 Debug.Log("Error: Player name can't have special symbols.");
+                                ErrorHandler.Error("Error: Name cant have any special symbols.");
                                 break;
                             }
                             
@@ -90,9 +91,11 @@ public class WhatsAppConverter : MonoBehaviour
             }
             else{
                 Debug.Log("Error loading players.");
+                ErrorHandler.Error("Error: Loading character name.");
             }
         } catch (Exception e) {
             Debug.Log($"Error reading file: {e.Message}");
+            ErrorHandler.Error($"Error reading files: {e.Message}");
         }
 
     }

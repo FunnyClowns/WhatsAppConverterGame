@@ -12,9 +12,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_1CharacterMessages;
     [SerializeField] TextMeshProUGUI m_2CharacterMessages;
 
+    [SerializeField] GameObject BubbleChat1;
+    [SerializeField] GameObject BubbleChat2;
+
 
     void Start(){
         StartCoroutine(WaitForFileReady());
+
+        BubbleChat1.SetActive(false);
+        BubbleChat2.SetActive(false);
+        
+        m_1CharacterName.text = "";
+        m_2CharacterName.text = "";
+
+        m_1CharacterMessages.text = "";
+        m_2CharacterMessages.text = "";
     }
 
     IEnumerator WaitForFileReady(){
@@ -46,13 +58,19 @@ public class PlayerController : MonoBehaviour
 
         for (int i = 0; i < datas.Count; i++){
 
-            yield return new WaitForSeconds(0.5f);
 
+            yield return new WaitForSeconds(1.5f);
+            
             if(datas[i][..1] == "1"){
                 SetCharacterText(1, datas[i][1..]);
+                BubbleChat1.SetActive(true);
+                BubbleChat2.SetActive(false);
             } else {
                 SetCharacterText(2, datas[i][1..]);
+                BubbleChat1.SetActive(false);
+                BubbleChat2.SetActive(true);
             }
+
 
             Debug.Log(datas[i][1..]);
         }

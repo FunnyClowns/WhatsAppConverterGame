@@ -1,9 +1,11 @@
 using UnityEngine;
 using SimpleFileBrowser;
 using System;
+using System.Collections;
 
 public class FileBrowserManager : MonoBehaviour
-{
+{  
+
 	void Start()
 	{
 
@@ -26,13 +28,7 @@ public class FileBrowserManager : MonoBehaviour
 
 		FileBrowser.SetExcludedExtensions( ".lnk", ".tmp", ".zip", ".rar", ".exe" );
 
-		// Add a new quick link to the browser (optional) (returns true if quick link is added successfully)
-		// It is sufficient to add a quick link just once
-		// Name: Users
-		// Path: C:\Users
-		// Icon: default (folder icon)
 		FileBrowser.AddQuickLink( "Downloads", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads", null );
-		
 
 		FileBrowser.ShowLoadDialog( ( paths ) => { WhatsAppConverter.ReadFile(@paths[0]); }, () => { OnCancelled(); },
 								   FileBrowser.PickMode.Files, false, null, null, "Select Files", "Load" );
@@ -47,4 +43,5 @@ public class FileBrowserManager : MonoBehaviour
 
         #endif
     }
+
 }
