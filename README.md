@@ -13,8 +13,8 @@ It reads WhatsApp Chat via .txt file not from API.
 * Easy to use. See [Tutorial](Docs/TutorialEN.md) for more.
 
 ## Download links
-* **Windows** Link_Download_Windows
-* **Android** Link_Download_Android
+* **Windows** [Download](https://github.com/FunnyClowns/WhatsAppConverterGame/releases/download/v1.0/OKCOMPUTER.apk)
+* **Android** [Download](https://github.com/FunnyClowns/WhatsAppConverterGame/releases/download/v1.0/OKCOMPUTER.zip)
 
 > [!NOTE]
 > This Game doesnt read any File other than you choosen, and it doesnt send it Online.
