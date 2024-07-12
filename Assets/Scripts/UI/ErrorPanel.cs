@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using SimpleFileBrowser;
+using UnityEngine.SceneManagement;
 
 public class ErrorPanel : MonoBehaviour
 {
@@ -50,24 +51,22 @@ public class ErrorPanel : MonoBehaviour
     /// Called directly by the quit button in the UI prefab
     /// </summary>
     public void OnClickOKButton(){
-        FileBrowser.ShowLoadDialog( ( paths ) => { WhatsAppConverter.ReadFile(@paths[0]); }, () => { OnClickExitButton(); },
-								   FileBrowser.PickMode.Files, false, null, null, "Select Files", "Load" );
+        WhatsAppConverter.ResetData();
+        FileBrowser.HideDialog();
 
         ErrorHandler.errorMessage = null;
         StartCoroutine(WaitError());
         
         SetPanelInvisible();
+
+        SceneManager.LoadScene("MainGame", LoadSceneMode.Single);
     }
 
     /// <summary>
     /// Called directly by the quit button in the UI prefab
     /// </summary>
-    public void OnClickExitButton(){
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+    public void OnClickCancelButton(){
+        SetPanelInvisible();
     }
 
 

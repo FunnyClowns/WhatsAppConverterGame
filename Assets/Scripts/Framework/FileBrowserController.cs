@@ -2,8 +2,11 @@ using UnityEngine;
 using SimpleFileBrowser;
 using System;
 using System.Collections;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
-public class FileBrowserManager : MonoBehaviour
+public class FileBrowserController : MonoBehaviour
 {  
 
 	void Start()
@@ -30,18 +33,36 @@ public class FileBrowserManager : MonoBehaviour
 
 		FileBrowser.AddQuickLink( "Downloads", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads", null );
 
-		FileBrowser.ShowLoadDialog( ( paths ) => { WhatsAppConverter.ReadFile(@paths[0]); }, () => { OnCancelled(); },
+		FileBrowser.ShowLoadDialog( ( paths ) => { OnSuccess(FileBrowserHelpers.ReadTextFromFile(paths[0])); }, () => { OnCancelled(); },
 								   FileBrowser.PickMode.Files, false, null, null, "Select Files", "Load" );
 
 	}
 
-    void OnCancelled(){
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
+    readonly static List<string> lines = new();
+    public static void OnSuccess(string fileContent){
+        
+        string[] fileLines = fileContent.Split(new string[] { "\n" }, StringSplitOptions.None);
+        
+        lines.Clear();
+        for(int i = 1; i <= 50; i++){
+            lines.Add(fileLines[i]);
+        }
 
-        #endif
+        WhatsAppConverter.ReadString(lines);
+    }
+
+    void OnCancelled(){
+        Debug.Log("Cancel");
+    }
+
+
+    /// <summary>
+    /// Called directly by the quit button in the UI prefab
+    /// </summary>
+    public void OnClickChooseFileButton(){
+        WhatsAppConverter.ResetData();
+        FileBrowser.HideDialog();
+        SceneManager.LoadScene("MainGame", LoadSceneMode.Single);
     }
 
 }

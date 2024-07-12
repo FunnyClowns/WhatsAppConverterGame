@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 5905150281149859266}
   - component: {fileID: 5312552686175684378}
   - component: {fileID: 1568209593918956414}
+  - component: {fileID: 2307622902782826296}
   m_Layer: 5
   m_Name: BubbleChat
   m_TagString: Untagged
@@ -210,3 +211,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2307622902782826296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5114783354676389502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24e0e958ee1b0141ad4638c88e2a702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

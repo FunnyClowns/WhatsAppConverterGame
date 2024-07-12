@@ -51,28 +51,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    static public List<string> characterDatas = new List<string>();
     IEnumerator SetCharacterData(){
+    
+        characterDatas = GetCharacterData();
+        Debug.Log("Data length " + characterDatas.Count);
+        
 
-        List<string> datas = GetCharacterData();
-        Debug.Log("Data length " + datas.Count);
-
-        for (int i = 0; i < datas.Count; i++){
-
-
-            yield return new WaitForSeconds(1.5f);
+        for (int i = 0; i < characterDatas.Count; i++){
             
-            if(datas[i][..1] == "1"){
-                SetCharacterText(1, datas[i][1..]);
+            yield return new WaitForSeconds(3f);
+            
+            if(characterDatas[i][..1] == "1"){
+                SetCharacterText(1, characterDatas[i][1..]);
                 BubbleChat1.SetActive(true);
                 BubbleChat2.SetActive(false);
             } else {
-                SetCharacterText(2, datas[i][1..]);
+                SetCharacterText(2, characterDatas[i][1..]);
                 BubbleChat1.SetActive(false);
                 BubbleChat2.SetActive(true);
             }
 
 
-            Debug.Log(datas[i][1..]);
+            //Debug.Log(datas[i][1..]);
         }
     }
 

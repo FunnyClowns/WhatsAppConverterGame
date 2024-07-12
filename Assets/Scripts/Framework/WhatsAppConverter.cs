@@ -7,92 +7,75 @@ using System.Collections.Generic;
 public class WhatsAppConverter : MonoBehaviour
 {
 
-    static public List<string> characterDatas{ get; private set; } = new List<string>();
+    static public List<string> characterDatas = new List<string>();
     static public string[] characterNames{ get; private set; } = new string[2];
-    static public int limitLine = 50;
     static bool isFileReaded;
 
 
     // Regex patterns
-    static string timelinePattern = @"\d{2}/\d{2}/\d{2}, \d{1,2}:\d{2} (?:am|pm) - ";
+    static string timelinePattern = @"^\d{2}/\d{2}/\d{2}(,)? \d{1,2}(?::|\.)\d{2}\s*(?:am|pm)? - ";
     static string namePattern = @"^[a-zA-Z]+(?: [a-zA-Z]+)?: ";
-    static string mediaMessage = @"^\<Media omitted\>$";
-    static string editedMessage = @"\<This message was edited\>";
-    public static void ReadFile(string FilePath){
+    static string mediaMessage = @"^\<Media omitted\>$|^\<Media tidak disertakan\>$";
+    static string editedMessage = @"\<This message was edited\>|\<Pesan ini diedit\>";
+    static string deletedMessage = @"^This message was deleted$|^You deleted this message$|^Pesan ini dihapus$|^Anda menghapus pesan ini$";
+    static string fileMessage = @"(file attached)|(file terlampir)";
 
-        int lineCount = 0;
-        
-
-        Debug.Log(FilePath);
+    public static void ReadString(List<string> lines){
 
         try{
-            using (StreamReader sr = new(FilePath)){
-                string line;
 
+            foreach(string line in lines){
 
-                while ((line = sr.ReadLine()) != null && lineCount <= limitLine){
-                    lineCount++;
+                string lineCleared = Regex.Replace(line, timelinePattern, "");
 
-                    if (lineCount != 1 && lineCount <= 50){
-                        string lineCleared = Regex.Replace(line, timelinePattern, "");
+                Match lineContents = Regex.Match(line, timelinePattern);
+                Match nameContents = Regex.Match(lineCleared, namePattern);
 
-                        Match lineContents = Regex.Match(line, timelinePattern);
-                        Match nameContents = Regex.Match(lineCleared, namePattern);
+                string name = nameContents.Groups[0].Value;
+                string message = lineCleared.Substring(nameContents.Length);
+                        
+                if (lineContents.Success){
+                    if (nameContents.Success){
 
-                        string name = nameContents.Groups[0].Value;
-                        string message = lineCleared.Substring(nameContents.Length);
+                        name = FilterName(name);
 
-                        if (lineContents.Success){
-                            if (nameContents.Success){
-
-                                name = FilterName(name);
-
-                                if (characterNames[0] == null)
-                                {
-                                    characterNames[0] = name;
-                                }
-                                else if (characterNames[0] != name && (characterNames[1] == null))
-                                {
-                                    characterNames[1] = name;
-                                }
-
-                                
-                                if(FilterMessage(message) != null){
-
-                                    SaveData(name, message);
-                                    
-                                } else {
-                                    lineCount -= 1;
-                                }
-
-                            } else{
-                                Debug.Log("Error: Player name can't have special symbols.");
-                                ErrorHandler.Error("Error: Name cant have any special symbols.");
-                                break;
-                            }
-                            
-                        } else{
-                            message = lineCleared;
-                            message = Regex.Replace(message, editedMessage, "");
-                            SaveData(name, message);
-                            lineCount -= 1;
+                        if (characterNames[0] == null){
+                            characterNames[0] = name;
+                        } else if (characterNames[0] != name && (characterNames[1] == null)){
+                            characterNames[1] = name;
                         }
 
-                    } else if (lineCount == limitLine) {
+                        message = FilterMessage(message);
+
+                        if(message != null){
+
+                            SaveData(name, message);
+                            Debug.Log(message);
+                                    
+                        }
+
+                    } else{
+                        Debug.Log("Error: Player name can't have special symbols.");
+                        ErrorHandler.Error("Error: Name cant have any special symbols.");
                         break;
                     }
-                    
+                            
+                } else{
+                    message = lineCleared;
+                    message = FilterMessage(message);
+                    SaveData(name, message);
                 }
+
             }
 
             if (!string.IsNullOrEmpty(characterNames[0]) && !string.IsNullOrEmpty(characterNames[1])){
-                Debug.Log($"There are 2 players chatting here: {characterNames[0]} and {characterNames[1]}");
+                //Debug.Log($"There are 2 players chatting here: {characterNames[0]} and {characterNames[1]}");
                 isFileReaded = true;
+                Debug.Log("Data length " + characterDatas.Count);
+            } else {
+                ErrorHandler.Error("Error: Cant load character name.");
             }
-            else{
-                Debug.Log("Error loading players.");
-                ErrorHandler.Error("Error: Loading character name.");
-            }
+
         } catch (Exception e) {
             Debug.Log($"Error reading file: {e.Message}");
             ErrorHandler.Error($"Error reading files: {e.Message}");
@@ -118,10 +101,15 @@ public class WhatsAppConverter : MonoBehaviour
 
     }
 
-    static bool isAutoGeneratedMessages(string message){
-        Match messageContents = Regex.Match(message, mediaMessage);
+    static public void ResetData(){
+        isFileReaded = false;
+        characterNames[0] = null;
+        characterNames[1] = null;
+        characterDatas.Clear();
+        PlayerController.characterDatas.Clear();
 
-        return !messageContents.Success;
+        //Debug.Log("Data reseted.");
+        
     }
 
     static public bool IsReady(){
@@ -139,10 +127,19 @@ public class WhatsAppConverter : MonoBehaviour
         message = Regex.Replace(message, editedMessage, "");
 
         if (isAutoGeneratedMessages(message)){
-            return message;
-        } else {
             return null;
         }
 
+        return message;
+
+    }
+
+    static bool isAutoGeneratedMessages(string message){
+        Match mediaContent = Regex.Match(message, mediaMessage);
+        Match deletedContent = Regex.Match(message, deletedMessage);
+        Match fileContent = Regex.Match(message, fileMessage);
+        
+
+        return mediaContent.Success || deletedContent.Success || fileContent.Success;
     }
 }
