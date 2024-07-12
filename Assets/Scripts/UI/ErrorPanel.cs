@@ -66,6 +66,8 @@ public class ErrorPanel : MonoBehaviour
     /// Called directly by the quit button in the UI prefab
     /// </summary>
     public void OnClickCancelButton(){
+        ErrorHandler.errorMessage = null;
+        StartCoroutine(WaitError());
         SetPanelInvisible();
     }
 
