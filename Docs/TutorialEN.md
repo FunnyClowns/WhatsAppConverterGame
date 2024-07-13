@@ -34,7 +34,7 @@ A quick Tutorial how to play the game.
 > You dont need to download it again if you has done it.
 2. **Open the file** and **Install it** to your Android Phone.<br>
 ![Screenshot of the apk](https://github.com/user-attachments/assets/754a8649-12b7-495a-9e7f-97cab6a61f12)<br>
-3. If this Request Permission UI appears **click on Allow**.<br>
+3. If this Request Permission UI appears, **click on Allow**.<br>
 ![UI Request Permission Image](https://github.com/user-attachments/assets/4c0a7ab5-bbc3-4c4e-8a05-1e8abc471209)<br>
 > [!NOTE]
 > Click on Allow means that the game has access to read the File path you has choosen.
