@@ -1,7 +1,7 @@
 # WhatsApp Converter Game
 
 A Game that converts WhatsApp Chat to Dialog looking Game with 2 Pixelize Characters.
-It reads WhatsApp Chat via .txt file not from API.
+It reads WhatsApp Chat via .txt file.
 
 ![Quick Photo of the game](https://github.com/user-attachments/assets/76b1fea5-6142-4290-979d-088a4d575bfd)
 
