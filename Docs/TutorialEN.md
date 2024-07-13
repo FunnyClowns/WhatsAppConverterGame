@@ -55,17 +55,21 @@ A quick Tutorial how to play the game.
 
 ## Export Chat
 1. **Open the Personal Chat** that you want to converts. <br>
+> [!NOTE]
+> This only **works in Phone WhatsApp application not in Web**.
 2. **Click the three dots** right above. <br>
 ![Three dots button Image](https://github.com/user-attachments/assets/184a7a32-3424-4b45-be25-ae26167a83af)<br>
 3. **Click** on More.<br>
 ![More Panel Image](https://github.com/user-attachments/assets/0d17bacf-9afc-4ff3-b931-95e2492632d2)<br>
 4. **Click** on Export Chat.<br>
 ![Export Panel Image](https://github.com/user-attachments/assets/cfef8085-8133-4441-be06-a9b672858753)<br>
-5. **Click on Without Media.<br>
+5. **Click** on Without Media.<br>
 ![Untitled](https://github.com/user-attachments/assets/e6cad3b6-855a-4fe7-97aa-6762ec9a5b19)<br>
 > [!IMPORTANT]
-> Please read it wisely, if you choose the Include Media it will effects the file and the game not gonna works.
-6. **Now you has done Exporting the WhatsApp Chat, remember the path because you need to in game.
+> **Please read it wisely**, if you choose the Include Media it will **effects the file and the game not gonna works**.
+6. Now you has done Exporting the WhatsApp Chat, **save it** to your External Storage.
+> [!TIP]
+> **Remember the path you has choosen** because you need to choose that Exported File in game
 
 
 
