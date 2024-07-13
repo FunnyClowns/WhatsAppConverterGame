@@ -34,14 +34,14 @@ A quick Tutorial how to play the game.
 > You dont need to download it again if you has done it.
 2. **Open the file** and **Install it** to your Android Phone.<br>
 ![Screenshot of the apk](https://github.com/user-attachments/assets/754a8649-12b7-495a-9e7f-97cab6a61f12)<br>
-3. If this Request Permission UI appears **click on Allow**.
-![UI Request Permission Image](https://github.com/user-attachments/assets/4c0a7ab5-bbc3-4c4e-8a05-1e8abc471209)
+3. If this Request Permission UI appears **click on Allow**.<br>
+![UI Request Permission Image](https://github.com/user-attachments/assets/4c0a7ab5-bbc3-4c4e-8a05-1e8abc471209)<br>
 > [!NOTE]
 > Click on Allow means that the game has access to read the File path you has choosen.
 > I doesnt have any access to receive your file, its readed on local.
-> **See** [how the game reads your File](https://github.com/FunnyClowns/WhatsAppConverterGame/blob/main/Assets/Scripts/Framework/FileBrowserController.cs) for more.
-4. **Click** on Browse and **choose the folder** that has your **.txt exported file** in.
-![Browser Button Image](https://github.com/user-attachments/assets/032024ae-02a8-4943-a276-f8c99db9ab17)
+> **See** [how the game reads your File](https://github.com/FunnyClowns/WhatsAppConverterGame/blob/main/Assets/Scripts/Framework/FileBrowserController.cs) for more.<br>
+4. **Click** on Browse and **choose the folder** that has your **.txt exported file** in.<br>
+![Browser Button Image](https://github.com/user-attachments/assets/032024ae-02a8-4943-a276-f8c99db9ab17)<br>
 5. **Choose the file** you want to converts in game File Browser.<br>
 ![File Browser ingame Image](https://github.com/user-attachments/assets/e668f3e0-af62-40f4-824c-5de532106d22)<br>
 > [!IMPORTANT]
@@ -54,3 +54,18 @@ A quick Tutorial how to play the game.
 
 
 ## Export Chat
+1. **Open the Personal Chat** that you want to converts. <br>
+2. **Click the three dots** right above. <br>
+![Three dots button Image](https://github.com/user-attachments/assets/184a7a32-3424-4b45-be25-ae26167a83af)<br>
+3. **Click** on More.<br>
+![More Panel Image](https://github.com/user-attachments/assets/0d17bacf-9afc-4ff3-b931-95e2492632d2)<br>
+4. **Click** on Export Chat.<br>
+![Export Panel Image](https://github.com/user-attachments/assets/cfef8085-8133-4441-be06-a9b672858753)<br>
+5. **Click on Without Media.<br>
+![Untitled](https://github.com/user-attachments/assets/e6cad3b6-855a-4fe7-97aa-6762ec9a5b19)<br>
+> [!IMPORTANT]
+> Please read it wisely, if you choose the Include Media it will effects the file and the game not gonna works.
+6. **Now you has done Exporting the WhatsApp Chat, remember the path because you need to in game.
+
+
+
