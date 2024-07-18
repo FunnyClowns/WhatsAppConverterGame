@@ -1,13 +1,19 @@
 using UnityEngine;
 using SimpleFileBrowser;
 using System;
-using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class FileBrowserController : MonoBehaviour
 {  
+
+    [SerializeField] UISkin FileBrowserSkin;
+
+    void Awake(){
+        if(FileBrowserSkin == null){
+            ErrorHandler.Error("Error: File Browser UI Skin not set yet.");
+        }
+    }
 
 	void Start()
 	{
@@ -32,6 +38,8 @@ public class FileBrowserController : MonoBehaviour
 		FileBrowser.SetExcludedExtensions( ".lnk", ".tmp", ".zip", ".rar", ".exe" );
 
 		FileBrowser.AddQuickLink( "Downloads", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads", null );
+
+        FileBrowser.Skin = FileBrowserSkin;
 
 		FileBrowser.ShowLoadDialog( ( paths ) => { OnSuccess(FileBrowserHelpers.ReadTextFromFile(paths[0])); }, () => { OnCancelled(); },
 								   FileBrowser.PickMode.Files, false, null, null, "Select Files", "Load" );

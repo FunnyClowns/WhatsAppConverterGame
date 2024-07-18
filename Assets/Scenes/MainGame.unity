@@ -470,7 +470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &690405915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -999,6 +999,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1224103640480014196, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -193
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431060342692563011, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_fontSize
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431060342692563011, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431060342692563011, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431060342692563011, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5114783354676389502, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_Name
       value: BubbleChat2
@@ -1029,11 +1049,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_LocalScale.x
@@ -1069,11 +1089,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 302
+      value: 319
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 94
+      value: 78
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1211,6 +1231,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1887224412}
     m_Modifications:
+    - target: {fileID: 4431060342692563011, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_fontSize
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431060342692563011, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431060342692563011, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5114783354676389502, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_Name
       value: BubbleChat1
@@ -1241,11 +1273,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1277,11 +1309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -306
+      value: -314
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 94
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 5905150281149859266, guid: 761c80061785b59499ec9199e16ec1fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
