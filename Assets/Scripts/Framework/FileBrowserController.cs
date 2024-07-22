@@ -9,16 +9,13 @@ public class FileBrowserController : MonoBehaviour
 
     [SerializeField] UISkin FileBrowserSkin;
 
-    void Awake(){
-        if(FileBrowserSkin == null){
-            ErrorHandler.Error("Error: File Browser UI Skin not set yet.");
-        }
-    }
+	void Start(){
+        FileBrowser.HideDialog();
+        CreateFileBrowser();
+	}
 
-	void Start()
-	{
-
-		FileBrowser.SetFilters( true, new FileBrowser.Filter( "Text Files", ".txt" ) );
+    void CreateFileBrowser(){
+        FileBrowser.SetFilters( true, new FileBrowser.Filter( "Text Files", ".txt" ) );
 
 		FileBrowser.SetDefaultFilter( ".txt" );
 
@@ -44,10 +41,10 @@ public class FileBrowserController : MonoBehaviour
 		FileBrowser.ShowLoadDialog( ( paths ) => { OnSuccess(FileBrowserHelpers.ReadTextFromFile(paths[0])); }, () => { OnCancelled(); },
 								   FileBrowser.PickMode.Files, false, null, null, "Select Files", "Load" );
 
-	}
+    }
 
-    readonly static List<string> lines = new();
-    public static void OnSuccess(string fileContent){
+    readonly List<string> lines = new();
+    public void OnSuccess(string fileContent){
         
         string[] fileLines = fileContent.Split(new string[] { "\n" }, StringSplitOptions.None);
         
@@ -56,21 +53,11 @@ public class FileBrowserController : MonoBehaviour
             lines.Add(fileLines[i]);
         }
 
-        WhatsAppConverter.ReadString(lines);
+        WhatsAppConverter.ReadFileString(lines);
     }
 
     void OnCancelled(){
         Debug.Log("Cancel");
-    }
-
-
-    /// <summary>
-    /// Called directly by the quit button in the UI prefab
-    /// </summary>
-    public void OnClickChooseFileButton(){
-        WhatsAppConverter.ResetData();
-        FileBrowser.HideDialog();
-        SceneManager.LoadScene("MainGame", LoadSceneMode.Single);
     }
 
 }

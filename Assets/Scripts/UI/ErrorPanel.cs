@@ -9,6 +9,13 @@ public class ErrorPanel : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI errorText;
     [SerializeField] UnityEngine.UI.Image panelImage;
+    
+    enum ButtonClickedType{
+        ResetScene,
+        ClosePanel
+    }
+
+    [SerializeField] ButtonClickedType OKButtonClickedType;
 
     void Awake(){
         StartCoroutine(WaitError());
@@ -48,7 +55,7 @@ public class ErrorPanel : MonoBehaviour
     }
 
     /// <summary>
-    /// Called directly by the quit button in the UI prefab
+    /// Called directly by the button in the UI prefab
     /// </summary>
     public void OnClickOKButton(){
         WhatsAppConverter.ResetData();
@@ -56,14 +63,17 @@ public class ErrorPanel : MonoBehaviour
 
         ErrorHandler.errorMessage = null;
         StartCoroutine(WaitError());
-        
-        SetPanelInvisible();
 
-        SceneManager.LoadScene("MainGame", LoadSceneMode.Single);
+        if (OKButtonClickedType == ButtonClickedType.ResetScene){
+            SceneManager.LoadScene("ChatFileBasedGame", LoadSceneMode.Single);
+        } else {
+            SetPanelInvisible();
+        }
+
     }
 
     /// <summary>
-    /// Called directly by the quit button in the UI prefab
+    /// Called directly by the button in the UI prefab
     /// </summary>
     public void OnClickCancelButton(){
         ErrorHandler.errorMessage = null;

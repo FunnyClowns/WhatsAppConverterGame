@@ -14,6 +14,8 @@ public class StartUpController : MonoBehaviour
             DontDestroyOnLoad(sceneGameObjects[i]);
         }
 
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("ChatFileBasedGame");
+
+        Destroy(this.gameObject);
     }
 }

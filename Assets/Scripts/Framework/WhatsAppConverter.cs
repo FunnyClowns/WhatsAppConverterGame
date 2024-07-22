@@ -9,7 +9,7 @@ public class WhatsAppConverter : MonoBehaviour
 
     static public List<string> characterDatas = new List<string>();
     static public string[] characterNames{ get; private set; } = new string[2];
-    static bool isFileReaded;
+    static bool isDataReady;
 
 
     // Regex patterns
@@ -20,7 +20,7 @@ public class WhatsAppConverter : MonoBehaviour
     static string deletedMessage = @"^This message was deleted$|^You deleted this message$|^Pesan ini dihapus$|^Anda menghapus pesan ini$";
     static string fileMessage = @"(file attached)|(file terlampir)";
 
-    public static void ReadString(List<string> lines){
+    public static void ReadFileString(List<string> lines){
 
         try{
 
@@ -49,7 +49,7 @@ public class WhatsAppConverter : MonoBehaviour
 
                         if(message != null){
 
-                            SaveData(name, message);
+                            SaveMessageDataByLine(name, message);
                             Debug.Log(message);
                                     
                         }
@@ -63,14 +63,14 @@ public class WhatsAppConverter : MonoBehaviour
                 } else{
                     message = lineCleared;
                     message = FilterMessage(message);
-                    SaveData(name, message);
+                    SaveMessageDataByLine(name, message);
                 }
 
             }
 
             if (!string.IsNullOrEmpty(characterNames[0]) && !string.IsNullOrEmpty(characterNames[1])){
                 //Debug.Log($"There are 2 players chatting here: {characterNames[0]} and {characterNames[1]}");
-                isFileReaded = true;
+                isDataReady = true;
                 Debug.Log("Data length " + characterDatas.Count);
             } else {
                 ErrorHandler.Error("Error: Cant load character name.");
@@ -84,8 +84,10 @@ public class WhatsAppConverter : MonoBehaviour
     }
 
 
+
+
     static int charNum;
-    static void SaveData(string name, string message){
+    static void SaveMessageDataByLine(string name, string message){
 
         string data;
 
@@ -101,8 +103,17 @@ public class WhatsAppConverter : MonoBehaviour
 
     }
 
+    public static void SaveMessageDataByList(List<string> MessagesList){
+        characterDatas = MessagesList;
+        isDataReady = true;
+    }
+
+    public static void SaveNameData(string[] CharNamesInput){
+        characterNames = CharNamesInput;
+    }
+
     static public void ResetData(){
-        isFileReaded = false;
+        isDataReady = false;
         characterNames[0] = null;
         characterNames[1] = null;
         characterDatas.Clear();
@@ -113,7 +124,7 @@ public class WhatsAppConverter : MonoBehaviour
     }
 
     static public bool IsReady(){
-        return isFileReaded;
+        return isDataReady;
     }
 
     static string FilterName(string name){
