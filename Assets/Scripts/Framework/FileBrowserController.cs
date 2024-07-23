@@ -3,6 +3,7 @@ using SimpleFileBrowser;
 using System;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEditor.VersionControl;
 
 public class FileBrowserController : MonoBehaviour
 {  
@@ -53,7 +54,7 @@ public class FileBrowserController : MonoBehaviour
             lines.Add(fileLines[i]);
         }
 
-        WhatsAppConverter.ReadFileString(lines);
+        MessageDataManager.ReadFileString(lines);
     }
 
     void OnCancelled(){

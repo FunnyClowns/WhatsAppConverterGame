@@ -53,7 +53,7 @@ public class CustomChatManager : MonoBehaviour
 
         StartCharacterDropdown();
 
-        WhatsAppConverter.SaveNameData(CharacterNames);
+        MessageDataManager.SaveNameData(CharacterNames);
 
         Debug.Log("Char 1 : "  + CharacterNames[0]);
         Debug.Log("Char 2 : "  + CharacterNames[1]);
@@ -95,7 +95,7 @@ public class CustomChatManager : MonoBehaviour
     /// Called directly by the button in the UI prefab
     /// </summary>
     public void OnClickFinishButton(){
-        WhatsAppConverter.SaveMessageDataByList(CharacterMessages);
+        MessageDataManager.SaveMessageDataByList(CharacterMessages);
 
         SetPanelInvisible();
     }

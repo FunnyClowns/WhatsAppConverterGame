@@ -30,12 +30,12 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator WaitForFileReady(){
-        while(!WhatsAppConverter.IsReady()){
+        while(!MessageDataManager.IsReady()){
             yield return null;
         }
 
         StartCoroutine(SetCharacterData());
-        SetCharacterName(WhatsAppConverter.characterNames);
+        SetCharacterName(MessageDataManager.characterNames);
     }
 
     public void SetCharacterName(string[] name){
@@ -75,10 +75,15 @@ public class PlayerController : MonoBehaviour
 
             //Debug.Log(datas[i][1..]);
         }
+
+        BubbleChat1.SetActive(false);
+        BubbleChat2.SetActive(false);
+
+        StartCoroutine(WaitForFileReady());
     }
 
     List<string> GetCharacterData(){
 
-        return WhatsAppConverter.characterDatas;
+        return MessageDataManager.characterDatas;
     }
 }

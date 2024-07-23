@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using SimpleFileBrowser;
+using UnityEditor.VersionControl;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class SceneLoader : MonoBehaviour
     /// Called directly by the button in the UI prefab
     /// </summary>
     public void OnClickButton(){
-        WhatsAppConverter.ResetData();
+        MessageDataManager.ResetData();
         FileBrowser.HideDialog();
         SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Single);
     }

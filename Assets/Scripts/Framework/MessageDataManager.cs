@@ -4,8 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
-public class WhatsAppConverter : MonoBehaviour
-{
+public class MessageDataManager : MonoBehaviour {
 
     static public List<string> characterDatas = new List<string>();
     static public string[] characterNames{ get; private set; } = new string[2];

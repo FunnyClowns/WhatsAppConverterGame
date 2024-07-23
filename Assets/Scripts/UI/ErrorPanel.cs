@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using SimpleFileBrowser;
 using UnityEngine.SceneManagement;
+using UnityEditor.VersionControl;
 
 public class ErrorPanel : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class ErrorPanel : MonoBehaviour
     /// Called directly by the button in the UI prefab
     /// </summary>
     public void OnClickOKButton(){
-        WhatsAppConverter.ResetData();
+        MessageDataManager.ResetData();
         FileBrowser.HideDialog();
 
         ErrorHandler.errorMessage = null;
