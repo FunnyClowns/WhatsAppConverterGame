@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using SimpleFileBrowser;
 using UnityEngine.SceneManagement;
-using UnityEditor.VersionControl;
+
 
 public class ErrorPanel : MonoBehaviour
 {

@@ -8,7 +8,7 @@ public class MessageDataManager : MonoBehaviour {
 
     static public List<string> characterDatas = new List<string>();
     static public string[] characterNames{ get; private set; } = new string[2];
-    static bool isDataReady;
+    static public bool isDataReady;
 
 
     // Regex patterns

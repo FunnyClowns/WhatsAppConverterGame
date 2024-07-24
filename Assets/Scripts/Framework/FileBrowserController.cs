@@ -3,7 +3,6 @@ using SimpleFileBrowser;
 using System;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using UnityEditor.VersionControl;
 
 public class FileBrowserController : MonoBehaviour
 {  

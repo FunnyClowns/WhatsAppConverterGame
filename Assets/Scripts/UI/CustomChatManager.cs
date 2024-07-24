@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
-using UnityEditor.VersionControl;
 using System.Collections.Generic;
 
 public class CustomChatManager : MonoBehaviour
@@ -10,6 +9,10 @@ public class CustomChatManager : MonoBehaviour
 
     [SerializeField] GameObject CharacterNamingPanel;
     [SerializeField] GameObject MessageInputPanel;
+    [SerializeField] GameObject EditChatButton;
+    [SerializeField] GameObject CancelButton;
+
+    UnityEngine.UI.Image PanelImage;
 
     [SerializeField] TMP_InputField NameInputField;
     [SerializeField] TextMeshProUGUI CharacterText;
@@ -22,6 +25,10 @@ public class CustomChatManager : MonoBehaviour
     string MessageFieldValue;
 
     List<string> CharacterMessages = new List<string>();
+
+    void Start(){
+        PanelImage = GetComponent<UnityEngine.UI.Image>();
+    }
 
     /// <summary>
     /// Called directly by the button in the UI prefab
@@ -94,10 +101,26 @@ public class CustomChatManager : MonoBehaviour
     /// <summary>
     /// Called directly by the button in the UI prefab
     /// </summary>
+    public void OnClicKEditChatButton(){
+        SetPanelVisible();
+        EditChatButton.SetActive(false);
+    }
+
+    /// <summary>
+    /// Called directly by the button in the UI prefab
+    /// </summary>
     public void OnClickFinishButton(){
         MessageDataManager.SaveMessageDataByList(CharacterMessages);
 
         SetPanelInvisible();
+        EditChatButton.SetActive(true);
+    }
+
+    /// <summary>
+    /// Called directly by the button in the UI prefab
+    /// </summary>
+    public void OnClickResetButton(){
+        MessageDataManager.ResetData();
     }
 
     /// <summary>
@@ -107,8 +130,21 @@ public class CustomChatManager : MonoBehaviour
         SetPanelInvisible();
     }
 
+    void SetPanelVisible(){
+        MessageInputPanel.SetActive(true);
+        CancelButton.SetActive(true);
+
+        PanelImage.enabled = true;
+    }
+
     void SetPanelInvisible(){
-        this.gameObject.SetActive(false);
+        for(int i = 0; i < transform.childCount; i++){
+            GameObject child = transform.GetChild(i).gameObject;
+
+            child.SetActive(false);
+        }
+
+        PanelImage.enabled = false;
     }
 
 }

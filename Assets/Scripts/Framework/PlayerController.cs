@@ -76,9 +76,12 @@ public class PlayerController : MonoBehaviour
             //Debug.Log(datas[i][1..]);
         }
 
+        yield return new WaitForSeconds(3f);
+
         BubbleChat1.SetActive(false);
         BubbleChat2.SetActive(false);
 
+        MessageDataManager.isDataReady = false;
         StartCoroutine(WaitForFileReady());
     }
 
